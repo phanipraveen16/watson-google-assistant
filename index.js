@@ -49,7 +49,7 @@ const assistant = new AssistantV1({ version: '2018-02-16' });
 console.log('Connected to Watson Assistant');
 let workspaceID; // workspaceID will be set when the workspace is created or validated.
 const assistantSetup = new WatsonAssistantSetup(assistant);
-const workspaceJson = JSON.parse(fs.readFileSync('data/assistant/workspaces/rent_a_car.json'));
+const workspaceJson = JSON.parse(fs.readFileSync('data/assistant/workspaces/skill-flight.json'));
 const assistantSetupParams = { default_name: DEFAULT_NAME, workspace_json: workspaceJson };
 assistantSetup.setupAssistantWorkspace(assistantSetupParams, (err, data) => {
   if (err) {
@@ -63,7 +63,7 @@ assistantSetup.setupAssistantWorkspace(assistantSetupParams, (err, data) => {
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-const START_OVER = 'start over';
+const START_OVER = '';
 const CANCEL = 'goodbye';
 let expectUserResponse;
 
